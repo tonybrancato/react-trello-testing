@@ -19,8 +19,7 @@ export default class AddForm extends React.Component {
         this.textInput.value = '';
     }
 
-    setEditing(event, editing) {
-        event.preventDefault();
+    setEditing(editing) {
         this.setState({
             editing
         });
@@ -30,7 +29,7 @@ export default class AddForm extends React.Component {
         if (!this.state.editing) {
             return (
                 <div className="add-button"
-                    onClick={(e) => this.setEditing(e, true)}>
+                    onClick={() => this.setEditing(true)}>
                     <a href="/">Add a {this.props.type}...</a>
                 </div>
             );
@@ -40,7 +39,7 @@ export default class AddForm extends React.Component {
             <form className="card add-form" onSubmit={(e) => this.onSubmit(e)}>
                 <input type="text" ref={input => this.textInput = input} />
                 <button>Add</button>
-                <button type="button" onClick={(e) => this.setEditing(e, false)}>
+                <button type="button" onClick={(e) => {e.preventDefault(); this.setEditing(false)}}>
                     Cancel
                 </button>
             </form>

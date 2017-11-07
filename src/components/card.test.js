@@ -14,5 +14,3 @@ describe('<Card />', () => {
         expect(wrapper.text()).toEqual(text);
     });
 });
-
-
