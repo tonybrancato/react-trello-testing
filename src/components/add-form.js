@@ -40,7 +40,7 @@ export default class AddForm extends React.Component {
             <form className="card add-form" onSubmit={(e) => this.onSubmit(e)}>
                 <input type="text" ref={input => this.textInput = input} />
                 <button>Add</button>
-                <button type="button" onClick={() => this.setEditing(false)}>
+                <button type="button" onClick={(e) => this.setEditing(e, false)}>
                     Cancel
                 </button>
             </form>
